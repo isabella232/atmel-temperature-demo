@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Web client for Atmel WINC-1500 demo with PubNub">
+	<meta name="author" content="Tomomi Imura  @girlie_mac">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<title>Atmel WINC-1500 x PubNub Demo</title>
+
+	<link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/lib/eon.css" />
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<section class="background"></section>
+	
+	<header>
+		<h1>Atmel</h1>
+		<h2>ATWINC-1500 Temperature Sensor</h2>
+		<!-- <h3>Powered by PubNub</h3> -->
+	</header>
+
+	<section class="main" role="main">
+		<div class="temp-container">
+			<div class="temp-num">
+				<span data-temp="">50</span>&deg;
+			</div> 
+			<div class="temp-hg-bkdg">
+				<div class="temp-hg" data-temp-ui=""></div>
+			</div> 
+		</div>
+
+		<section class="chart-container">
+			<div id="chart"></div>
+		</section>
+	</section>
+
+	
+			
+
+	<footer>
+		<img src="https://brandfolder.com/pubnub/logo.png">
+	</footer>
+
+	<script src="http://cdn.pubnub.com/pubnub-3.7.1.min.js"></script>
+	<script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon.js"></script>
+	<script src="js/app.min.js"></script>
+</body>
+</html>
