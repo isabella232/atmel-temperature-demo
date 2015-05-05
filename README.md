@@ -12,6 +12,7 @@ TBD
 [Access it now!][demo]
 
 This demo required a physical device running.
+Also, the UI is optimized for large display (2560 x 1440) for tradeshow demo.
 
 If you see a blank graph with purple background, the Atwinc-1500 is not running.
 
