@@ -1,22 +1,3 @@
-.preload-0 {
-	background: url(../images/moderate.jpg) no-repeat -9999px;
-}
-.preload-1 {
-	background: url(../images/warm.jpg) no-repeat -9999px;
-}
-.preload-2 {
-	background: url(../images/chilly.jpg) no-repeat -9999px;
-}
-.preload-3 {
-	background: url(../images/hot.jpg) no-repeat -9999px;
-}
-.preload-4 {
-	background: url(../images/cool.jpg) no-repeat -9999px;
-}
-.preload-4 {
-	background: url(../images/comfy.jpg) no-repeat -9999px;
-}
-
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 html {
@@ -64,19 +45,19 @@ header h1 {
 	background-image: url(../images/chilly.jpg);
 }
 .background.cool {
-	background-image: url(../images/cool.jpg);
+	background-image: url(../images/plants/azalea.jpg);
 }
 .background.moderate {
-	background-image: url(../images/moderate.jpg);
+	background-image: url(../images/plants/tulip.jpg);
 }
 .background.comfy {
-	background-image: url(../images/comfy.jpg);
+	background-image: url(../images/plants/poinsettia.jpg);
 }
 .background.warm {
-	background-image: url(../images/warm.jpg);
+	background-image: url(../images/plants/bird-of-paradise.jpg);
 }
 .background.hot {
-	background-image: url(../images/hot.jpg);
+	background-image: url(../images/plants/cactus.jpg);
 }
 
 .main {
@@ -108,7 +89,28 @@ header h1 {
 	border-top: 3px solid rgba(255, 255, 255, 0.4);
 	border-right: 1px solid rgba(0, 0, 0, 0.3);
 	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-
+}
+[data-temp]::after {
+	content: '°';
+}
+[data-temp].alert {
+	color: rgb(252, 185, 31);
+	-webkit-animation: blink 1.5s infinite ease-in-out;
+	animation: blink 1.5s infinite ease-in-out;
+}
+@-webkit-keyframes blink {
+  from {opacity: 1; }
+  to {opacity: 0;}
+}
+@keyframes blink {
+  from {opacity: 1; }
+  to {opacity: 0;}
+}
+.warning {
+	position: relative;
+	top: -38px;
+	left: -30px;
+	font-size: 1.4em;
 }
 .temp-hg-bkdg {
 	width: 70%;

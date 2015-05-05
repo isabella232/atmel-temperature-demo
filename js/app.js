@@ -15,6 +15,7 @@
 	var bkgd = document.querySelector('.background');
 	var temp = document.querySelector('[data-temp]');
 	var hg = document.querySelector('[data-temp-ui]');
+	var warningText = document.querySelector('.warning');
 
 	var firstRun = true;
 	var initTemp = 50;
@@ -31,6 +32,10 @@
 
 		// Temperature display as thermometer
 
+		if(temp.classList.contains('alert')) {
+			temp.classList.remove('alert');
+		}
+
 		var h = (t < 0) ? 0 : t;
 		h = (t <=100) ? t : 100;
 
@@ -41,19 +46,32 @@
 		
 		if(t < 50) {
 			newImg = 'chilly';
-		} else if (t >= 50 && t < 55) {
+		} else if (t >= 50 && t < 55) { // Azaleas
 			newImg = 'cool';
-		} else if (t >= 55 && t < 60) {
+		} else if (t >= 55 && t < 60) { // Tulips
 			newImg = 'moderate';
-		} else if (t >= 60 && t < 65) {
+		} else if (t >= 60 && t < 65) { // Poinsettias
 			newImg = 'comfy';
-		} else if (t >= 65 && t < 75) {
+		} else if (t >= 65 && t < 75) { // Bird of paradise
 			newImg = 'warm';
-		} else {
-			newImg = 'hot';
+		} else { //cuctus
+			newImg = 'hot'; 
 		}
 
 		bkgd.className = 'background ' + newImg;
+
+		if(t > prevTemp) { // Temperature rising
+			if(t == 49 || t == 54 || t == 59 || t == 64 || t == 69 || t == 74) { 
+				temp.classList.add('alert');
+				warningText.textContent =' Keep temeperature is rising too high for the plant!';
+			}
+		} else if(t < prevTemp) { // Temp dripping
+			if(t == 75 || t == 65 || t == 60 || t == 55 || t == 50) { 
+				temp.classList.add('alert');
+				warningText.textContent = 'Keep temeperature is dropping too low for the plant!';
+			}
+		}
+		
 
 		prevTemp = t;		
 	}
