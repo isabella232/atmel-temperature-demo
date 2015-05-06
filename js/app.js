@@ -63,12 +63,12 @@
 		if(t > prevTemp) { // Temperature rising
 			if(t == 49 || t == 54 || t == 59 || t == 64 || t == 69 || t == 74) { 
 				temp.classList.add('alert');
-				warningText.textContent =' Keep temeperature is rising too high for the plant!';
+				warningText.textContent ='Temeperature is rising higher than the plant\'s optimum temperature!';
 			}
 		} else if(t < prevTemp) { // Temp dripping
 			if(t == 75 || t == 65 || t == 60 || t == 55 || t == 50) { 
 				temp.classList.add('alert');
-				warningText.textContent = 'Keep temeperature is dropping too low for the plant!';
+				warningText.textContent = 'Temeperature is dropping lower than the plant\'s optimum temperature!';
 			}
 		}
 		

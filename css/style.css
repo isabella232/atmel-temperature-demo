@@ -42,7 +42,7 @@ header h1 {
 	filter: blur(10px);
 }
 .background.chilly {
-	background-image: url(../images/chilly.jpg);
+	background-image: url(../images/plants/camellia.jpg);
 }
 .background.cool {
 	background-image: url(../images/plants/azalea.jpg);
@@ -108,8 +108,7 @@ header h1 {
 }
 .warning {
 	position: relative;
-	top: -38px;
-	left: -30px;
+	top: 26px;
 	font-size: 1.4em;
 }
 .temp-hg-bkdg {
@@ -239,6 +238,9 @@ footer img {
 	}
 	.temp-hg-bkdg {
 		width: 50%;
+	}
+	.warning {
+		font-size: 1em;
 	}
 	#chart {
 		height: 280px;
