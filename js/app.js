@@ -22,9 +22,11 @@
 
 	var prevTemp = 50;
 
-	function displayTemperature(t) {
-		if(!t) return;
-		if(t === prevTemp) return;
+	function displayTemperature(currentTemp) {
+		if(!currentTemp) return;
+		if(currentTemp === prevTemp) return;
+
+		var t = currentTemp >>> 0;
 
 		// Temperature display in text
 
@@ -64,16 +66,19 @@
 			if(t == 49 || t == 54 || t == 59 || t == 64 || t == 69 || t == 74) { 
 				temp.classList.add('alert');
 				warningText.textContent ='Temeperature is rising higher than the plant\'s optimum temperature!';
+			} else {
+				warningText.textContent = '';
 			}
 		} else if(t < prevTemp) { // Temp dripping
 			if(t == 75 || t == 65 || t == 60 || t == 55 || t == 50) { 
 				temp.classList.add('alert');
 				warningText.textContent = 'Temeperature is dropping lower than the plant\'s optimum temperature!';
+			} else {
+				warningText.textContent = '';
 			}
-		}
-		
+		} 
 
-		prevTemp = t;		
+		prevTemp = currentTemp;
 	}
 
 	function plotGraph(pubnub) {
@@ -118,17 +123,17 @@
 						// 	text: 'Temperature [F°]',
 						// 	position: 'outer-top'
 						// },
-						max: initTemp + 20,
+						max: initTemp + 25,
 						min: initTemp - 10,
 					},
 					x : {
 						//type : 'timeseries',
-						localtime: true,
+						//localtime: true,
 						tick: {
-						 	format: '%H:%M:%S',
-						culling: {
-							max: 20
-						}
+						 	//format: '%H:%M:%S',
+							culling: {
+								max: 20
+							}
 						},
 						//show: false
 					}
@@ -138,11 +143,14 @@
 				console.log('eon connected to: '+ m);
 			},
 			message: function(m) {
+				var currentTemp = m.columns[0][1];
+
 				if(firstRun) { 
-					initTemp = m.columns[0][1];
+					initTemp = currentTemp;
 					firstRun = false;
 				}
-				displayTemperature(m.columns[0][1]);
+
+				displayTemperature(currentTemp);
 			},
 			pubnub: pubnub
 		});
