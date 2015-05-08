@@ -9,6 +9,8 @@ TBD
 
 ## Demo
 
+This demo is optimized only for Chrome browser on large display screen for conference booth.
+
 [Access it now!][demo]
 
 This demo required a physical device running.

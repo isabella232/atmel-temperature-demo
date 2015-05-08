@@ -10,7 +10,7 @@
 (function() {
 	'use strict';
 
-	var channel = 'Atmel_Pubnub';
+	var channel = (typeof channelName === 'undefined') ? 'Atmel_Pubnub' : channelName;
 
 	var bkgd = document.querySelector('.background');
 	var temp = document.querySelector('[data-temp]');
@@ -18,9 +18,10 @@
 	var warningText = document.querySelector('.warning');
 
 	var firstRun = true;
-	var initTemp = 50;
+	var initTemp = 0;
 
-	var prevTemp = 50;
+	var prevTemp = 0;
+	var max = 80;
 
 	function displayTemperature(currentTemp) {
 		if(!currentTemp) return;
@@ -38,7 +39,7 @@
 			temp.classList.remove('alert');
 		}
 
-		var h = (t < 0) ? 0 : t;
+		var h = (t < 8) ? 8 : t; // UI looks bad when under 8.
 		h = (t <=100) ? t : 100;
 
 		hg.style.width = h + '%';
@@ -65,14 +66,14 @@
 		if(t > prevTemp) { // Temperature rising
 			if(t == 49 || t == 54 || t == 59 || t == 64 || t == 69 || t == 74) { 
 				temp.classList.add('alert');
-				warningText.textContent ='Temeperature is rising higher than the plant\'s optimum temperature!';
+				warningText.textContent ='Temperature is rising above the plant\'s optimum temperature!';
 			} else {
 				warningText.textContent = '';
 			}
 		} else if(t < prevTemp) { // Temp dripping
 			if(t == 75 || t == 65 || t == 60 || t == 55 || t == 50) { 
 				temp.classList.add('alert');
-				warningText.textContent = 'Temeperature is dropping lower than the plant\'s optimum temperature!';
+				warningText.textContent = 'Temperature is dropping below the plant\'s optimum temperature!';
 			} else {
 				warningText.textContent = '';
 			}
@@ -83,7 +84,7 @@
 
 	function plotGraph(pubnub) {
 		// Eon
-		eon.chart({
+		var chart = eon.chart({
 			channel: channel,
 			padding: {
 				left: 100
@@ -122,9 +123,7 @@
 						// label: {
 						// 	text: 'Temperature [F°]',
 						// 	position: 'outer-top'
-						// },
-						max: initTemp + 25,
-						min: initTemp - 10,
+						// }
 					},
 					x : {
 						//type : 'timeseries',
@@ -146,10 +145,15 @@
 				var currentTemp = m.columns[0][1];
 
 				if(firstRun) { 
-					initTemp = currentTemp;
+					max = parseInt(currentTemp) + 20; 
+					chart.axis.max({y: max});
+					chart.axis.min({y: max - 35});
 					firstRun = false;
 				}
 
+				if(currentTemp > max) { 
+					chart.axis.max({y: parseInt(currentTemp) + 5});
+				}
 				displayTemperature(currentTemp);
 			},
 			pubnub: pubnub

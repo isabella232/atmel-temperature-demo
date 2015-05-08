@@ -10,7 +10,9 @@ body {
 	font-family: "HelveticaNeue-UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Segoe UI Web Light", "Segoe UI Light", "Segoe UI Web Regular", "Segoe UI", Helvetica, Arial, sans-serif; 
 	background: #C9BCB6;
 	color: #fff;
+	display: -webkit-flex;
 	display: flex;
+	-webkit-flex-direction: column;
 	flex-direction: column;
 }
 h1, h2, h3 {
@@ -62,26 +64,30 @@ header h1 {
 
 .main {
 	display: flex;
+	display: -webkit-flex;
 	flex-direction: column;
+	-webkit-flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 60%;
 }
 .temp-container {
 	display: flex;
+	display: -webkit-flex;
 	overflow: hidden;
 	min-width: 700px;
 	width: 75%;
 	min-height: 160px;
 	border-radius: 100px;
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	background: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+	background: rgba(255, 255, 255, 0.25);
 }
 .temp-num {
-	background: linear-gradient(135deg, rgba(18, 13, 7, 0.05) 10%, rgba(18, 13, 7, 0.4));
+	background: linear-gradient(135deg, rgba(18, 13, 7, 0.2) 10%, rgba(18, 13, 7, 0.65));
 	color: #fff;
 	font-size: 74px;
 	line-height: 160px;
+	min-width: 180px;
 	font-weight: 400;
 	padding: 0 30px 0 50px;
 	text-shadow: 0 2px 5px #333;
@@ -117,23 +123,22 @@ header h1 {
 	margin: auto 30px;
 	border-radius: 20px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 1px 1px 0px rgba(0, 0, 0, 0.2), 0 1px 0 0px rgba(255, 255, 255, 0.5);
-	background: linear-gradient(-135deg, rgba(18, 13, 7, 0.15) 30%, rgba(18, 13, 7, 0.4));
+	box-shadow: inset 0 1px 1px 0px rgba(0, 0, 0, 0.5), 0 1px 0 0px rgba(255, 255, 255, 0.5);
+	background: linear-gradient(-135deg, rgba(18, 13, 7, 0.25) 30%, rgba(18, 13, 7, 0.5));
 }
 .temp-hg {
-	width: 50%;
+	width: 8%;
 	height: 38px;
 	margin: 0;
 	border-radius: 20px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	box-shadow: inset 0 1px 0 0px rgba(255, 255, 255, 0.5), 0 1px 1px 0px rgba(0, 0, 0, 0.2);
-	background: linear-gradient(135deg, rgba(255, 155, 106, 0.4) 30%, rgba(226, 90, 25, 0.6));
+	background: linear-gradient(135deg, rgba(255, 155, 106, 0.4) 30%, rgba(226, 90, 25, 1));
 }
 .chart-container {
 	width: 75%;
 }
 #chart {
-	height: 440px;
 	margin-top: 80px;
 }
 #chart line {
@@ -197,16 +202,15 @@ footer img {
 	margin: 0;
 }
 
-@media only screen and (min-height: 1200px) {
+@media only screen and (min-height: 1260px) {
 	header {
-		margin: 2em 2em 6em 2em;
+		margin: 3em 3em 8em 3em;
 	}
 	.temp-hg-bkdg {
 		width: 80%;
 	}
 	#chart {
-		max-height: 500px;
-		margin-top: 200px;
+		margin-top: 160px;
 	}
 }
 
