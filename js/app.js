@@ -23,15 +23,15 @@
 	var prevTemp = 0;
 	var max = 80;
 
-	function displayTemperature(currentTemp) {
-		if(!currentTemp) return;
+	function displayTemperature(currentTemp) { 
+;		if(!currentTemp) return;
 		if(currentTemp === prevTemp) return;
 
 		var t = currentTemp >>> 0;
 
 		// Temperature display in text
 
-		temp.textContent = t;
+		temp.textContent = parseInt(currentTemp).toFixed(1);
 
 		// Temperature display as thermometer
 
