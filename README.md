@@ -7,11 +7,6 @@ The Atmel temperature sensor monitors temperatures and streams the data to this 
 
 Then this web-based visual display subscribes to this channel to visualize the data stream.
 
-## Turorial
-
-[Atmel Xplained Pro: Realtime Temperature Sensor](http://www.pubnub.com/blog/atmel-xplained-pro-real-time-temperature-sensor/) by Bhavana Srinivas
-
-![concept](http://www.pubnub.com/blog/wp-content/uploads/2015/05/demofunctionality.png "The concept")
 
 ## Running this Demo
 
@@ -26,6 +21,63 @@ If you see a blank graph with purple background, the hardware is not running pro
 
  
 ![Screenshot](http://www.pubnub.com/blog/wp-content/uploads/2015/05/xplained_pro_demo_gif.gif "Screenshot")
+
+## Xplained Pro Turorial
+
+[Atmel Xplained Pro: Realtime Temperature Sensor](http://www.pubnub.com/blog/atmel-xplained-pro-real-time-temperature-sensor/) by Bhavana Srinivas
+
+![concept](http://www.pubnub.com/blog/wp-content/uploads/2015/05/demofunctionality.png "The concept")
+
+## Subscribing Data from the Hardware
+
+To plat a graph, instead of just sending raw data from the sensor, the data is sent in JSON format like this:
+
+```
+{"columns": [
+    ["temperature", "55.00"]
+  ]
+}
+```
+
+Normally, we subscribe messages using PubNub Subscribe API as following:
+
+```
+pubnub.subscribe({
+  channel: channel,
+  callback: function(m) { 
+    console.log(m.columns[0]);	
+    // and plot graph using the data!
+  }
+});
+```
+
+However, with using **EON**, you can subscribe *and* generate a graph all together.
+
+### Data Visualization with EON
+
+[EON](http://pubnub.github.io/eon/) is an open-source data visualization library that built on top of C3.js, which is a D3.js wrapper, and helps you to generate realtime charts and graphs easily.
+
+So instead of use subscribe API, use EON to plot a graph while subscribing:
+
+```
+eon.chart({
+  channel: 'Atmel_Pubnub,
+  generate: {
+    bindto: '#chart',
+    data: {
+      colors: {
+          temperature: 'white'
+      }
+    },
+    size: {
+      height: 440
+    },
+    //... more config
+  }
+});
+```
+
+
 
 
 [demo]: http://pubnub.github.io/atmel-temperature-demo
