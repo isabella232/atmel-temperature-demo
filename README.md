@@ -39,7 +39,7 @@ To plat a graph, instead of just sending raw data from the sensor, the data is s
 }
 ```
 
-Normally, we subscribe messages using PubNub Subscribe API as following:
+Normally, you can subscribe messages using PubNub Subscribe API as following:
 
 ```
 pubnub.subscribe({
@@ -51,7 +51,7 @@ pubnub.subscribe({
 });
 ```
 
-However, with using **EON**, you can subscribe *and* generate a graph all together.
+However, in this demo, subscribe API is not used because now we have **EON** library that lets you subscribe *and* generate a graph all together.
 
 ### Data Visualization with EON
 
