@@ -55,7 +55,7 @@ However, in this demo, subscribe API is not used because now we have **EON** lib
 
 ### Data Visualization with EON
 
-[EON](http://pubnub.github.io/eon/) is an open-source data visualization library that built on top of C3.js, which is a D3.js wrapper, and helps you to generate realtime charts and graphs easily.
+[EON](eon) is an open-source data visualization library that built on top of C3.js, which is a D3.js wrapper, and helps you to generate realtime charts and graphs easily.
 
 So instead of use subscribe API, use EON to plot a graph while subscribing:
 
@@ -81,3 +81,4 @@ eon.chart({
 
 
 [demo]: http://pubnub.github.io/atmel-temperature-demo
+[eon]: http://www.pubnub.com/developers/eon/?source=atmel-temperature-demo&medium=github
