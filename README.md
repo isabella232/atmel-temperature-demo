@@ -32,7 +32,7 @@ If you see a blank graph with purple background, the hardware is not running pro
 
 To plat a graph, instead of just sending raw data from the sensor, the data is sent in JSON format like this:
 
-```
+```json
 {"columns": [
     ["temperature", "55.00"]
   ]
@@ -41,7 +41,7 @@ To plat a graph, instead of just sending raw data from the sensor, the data is s
 
 Normally, you can subscribe messages using PubNub Subscribe API as following:
 
-```
+```javascript
 pubnub.subscribe({
   channel: channel,
   callback: function(m) { 
@@ -59,7 +59,7 @@ pubnub.subscribe({
 
 So instead of use subscribe API, use EON to plot a graph while subscribing:
 
-```
+```javascript
 eon.chart({
   channel: 'Atmel_Pubnub,
   generate: {
@@ -72,7 +72,7 @@ eon.chart({
     size: {
       height: 440
     },
-    //... more config
+    //... more config for data visualization
   },
   connect: function(m) {
    // callback function to call when the initial connection is established
