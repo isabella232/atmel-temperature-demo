@@ -46,12 +46,12 @@ pubnub.subscribe({
   channel: channel,
   callback: function(m) { 
     console.log(m.columns[0]);	
-    // and plot graph using the data!
+    // do something
   }
 });
 ```
 
-However, in this demo, subscribe API is not used because now we have **EON** library that lets you subscribe *and* generate a graph all together.
+*However*, in this demo, you are not using the subscribe API, but instead, using **EON** Chart framework that lets you subscribe *and* generate a graph all together.
 
 ### Data Visualization with EON
 
