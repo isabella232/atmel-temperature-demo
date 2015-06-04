@@ -73,6 +73,12 @@ eon.chart({
       height: 440
     },
     //... more config
+  },
+  connect: function(m) {
+   // callback function to call when the initial connection is established
+  },
+  message: function(m) {
+   // callback function to call each time message is received
   }
 });
 ```
