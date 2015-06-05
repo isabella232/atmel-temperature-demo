@@ -19,7 +19,6 @@ Also, the UI is optimized for large display (2560 x 1440) for tradeshow demo.
 
 If you see a blank graph with purple background, the hardware is not running properly.
 
- 
 ![Screenshot](http://www.pubnub.com/blog/wp-content/uploads/2015/05/xplained_pro_demo_gif.gif "Screenshot")
 
 ## Xplained Pro Turorial
@@ -29,6 +28,8 @@ If you see a blank graph with purple background, the hardware is not running pro
 ![concept](http://www.pubnub.com/blog/wp-content/uploads/2015/05/demofunctionality.png "The concept")
 
 ## Subscribing Data from the Hardware
+
+![photo](http://www.pubnub.com/blog/wp-content/uploads/2015/05/atmel1-1024x576.jpg "Xplained Pro")
 
 To plat a graph, instead of just sending raw data from the sensor, the data is sent in JSON format like this:
 
